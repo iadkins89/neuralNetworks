@@ -116,7 +116,7 @@ class three_layer_NN:
             if verbose:
                 print(f'Epoch {epoch}| Acc {(1 - (sum(cost) / len(cost))) * 100} | Error {(sum(cost) / len(cost))*100}')
         if not verbose:
-                print(f'Acc {(1 - (sum(cost[-1]) / len(cost))) * 100} | Error {(sum(cost) / len(cost)) * 100}')
+                print(f'Acc {(1 - (sum(cost) / len(cost))) * 100} | Error {(sum(cost) / len(cost)) * 100}')
 
         return predictions, cost
 
