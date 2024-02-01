@@ -120,10 +120,6 @@ class three_layer_NN:
     def predict(self, xt):
         predictions = []
         for i in range(len(xt)):
-            ot = self.__forward(xt[i])
-            if ot <.5:
-                predictions.append(0)
-            else:
-                predictions.append(1)
+            predictions.append(self.__forward(xt[i]))
 
         return predictions
