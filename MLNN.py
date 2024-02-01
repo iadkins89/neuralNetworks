@@ -99,7 +99,7 @@ class three_layer_NN:
 
         return output
 
-    def train(self, num_epochs, learn_rate, hidden_activation, output_activation):
+    def train(self, num_epochs, learn_rate, hidden_activation, output_activation, verbose=True):
         self.learn_rate = learn_rate
         self.hidden_activation = hidden_activation
         self.output_activation = output_activation
@@ -113,8 +113,11 @@ class three_layer_NN:
 
                 if epoch == range(0, num_epochs)[-1]:
                     predictions.append(o)
+            if verbose:
+                print(f'Epoch {epoch}| Acc {(1 - (sum(cost) / len(cost))) * 100} | Error {(sum(cost) / len(cost))*100}')
+        if not verbose:
+                print(f'Acc {(1 - (sum(cost[-1]) / len(cost))) * 100} | Error {(sum(cost) / len(cost)) * 100}')
 
-            print(f'Epoch {epoch}| Acc {(1 - (sum(cost) / len(cost))) * 100} | Error {(sum(cost) / len(cost))*100}')
         return predictions, cost
 
     def predict(self, xt):
